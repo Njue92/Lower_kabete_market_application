@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+{% block title %}Market{% endblock %}
+{% block content %}
+{#    https://getbootstrap.com/docs/5.0/layout/grid/#}
+<div class="row" style="margin-top: 20px; margin-left: 20px">
+   <div class="col-8">
+      <h2>Add items to market</h2>
+      <p> Please fill the below form to add items to your stock</p>
+      <br>
+      <form method="post"  style="color:white">
+         {{ add_form.hidden_tag() }}
+         {#          {% include 'includes/add_item_modals.html' %}#}
+         {#    <img class="mb-4" src="https://www.pngkey.com/png/detail/954-9549171_that-designs-mdts-cads-websites-discord-bots-logos.png" alt="" height="175" width="175">#}
+         <br>
+         {{ add_form.name.label() }}
+         {{ add_form.name(class="form-control",placeholder="Name of item") }}
+         {{ add_form.price.label() }}
+         {{ add_form.price(class="form-control",placeholder="Price") }}
+         {{ add_form.barcode.label() }}
+         {{ add_form.price(class="form-control",placeholder="(Optional)") }}
+         {{ add_form.description.label() }}
+         {{ add_form.description(class="form-control",placeholder="Description of item (150 words)") }}
+         <br>
+         {#        <button class="btn btn-outline btn-success" data-toggle="modal" data-target="#Modal-AddConfirm-{{ item.id }}"> Add Item</button>#}
+         {{ add_form.submit(class="btn btn-outline btn-primary")}}
+{#          <button type="submit">Add item to inventory</button>#}
+         <br>
+      </form>
+   </div>
+   <div class="col-4">
+      <h2>Stock</h2>
+      <p> Click on add item to place your item on the market</p>
+      <br>
+      <div class="row">
+         {#           {% for item in add_form %}#}
+         {#
+         <div class="col-md-6">
+            #}
+            {#
+            <div style="margin-bottom: 5px" class="card text-center bg-dark">
+               #}
+               {#
+               <div class="card-body">
+                  #}
+                  {#
+                  <h5 class="card-title">{{ item.name }}</h5>
+                  #}
+                  {#                       <button type="button" class="btn btn-outline-danger" style="margin-bottom: 5px"#}
+                  {#                               data-toggle="modal" data-target="#Modal-AddConfirm-{{ item.id }}">#}
+                  {#                           Sell this item#}
+                  {#                       </button>#}
+                  {#                       <a class="card-text"><strong>Item costs Ksh. {{ item.price }}</strong></a>#}
+                  {#
+               </div>
+               #}
+               {#
+            </div>
+            #}
+            {##}
+            {#
+         </div>
+         #}
+         {#           {% endfor %}#}
+         {% if all_items %}
+         <table class="table table-hover table-dark">
+         <thead>
+            <tr>
+               <!-- Your Columns HERE -->
+               <th scope="col">ID</th>
+               <th scope="col">Name</th>
+               <th scope="col">Barcode</th>
+               <th scope="col">Price</th>
+            </tr>
+         </thead>
+         <tbody>
+            <!-- Your rows inside the table HERE: -->
+            {% for row in all_items %}
+            {#                {% include 'includes/item_modals.html' %}#}
+            <tr>
+               <td>{{ row.id }}</td>
+               <td>{{ row.name }}</td>
+               <td>{{ row.barcode }}</td>
+               <td>Ksh. {{ row.price}}</td>
+               <td>
+                  <button class="btn btn-outline btn-info">Add</button>
+               </td>
+            </tr>
+            {% endfor %}
+         </tbody>
+      </table>
+         {% endif %}
+      </div>
+   </div>
+</div>
+{#end of grid#}
+{% endblock %}

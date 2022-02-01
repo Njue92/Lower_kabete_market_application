@@ -1,0 +1,111 @@
+<style>
+    .modal-content{
+        background-color: #212121
+
+    }
+</style>
+
+<!-- More Info Modal-->
+<div class="modal fade" id="Modal-MoreInfo-{{ item.id }}"
+   tabindex="-1"
+   aria-labelledby="exampleModallabel" aria-hidden="true">
+   <div class="modal-dialog">
+      <div class="modal-content">
+         <div class="modal-header">
+            <h5 class="modal-title" id="Modallabel">
+               <!-- -->
+                {{ item.name }}
+            </h5>
+            <button type="button" class="close"
+               data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true"></span>
+            </button>
+         </div>
+         <div class="modal-body">
+            <!-- Here goes the text/paragraph-->
+             {{ item.description }}
+         </div>
+         <div class="modal-footer">
+            <button type="button" class="btn btn-secondary"
+               data-dismiss="modal">Close
+            </button>
+         </div>
+      </div>
+   </div>
+</div>
+<!-- End of More Info Modal-->
+
+<!-- Beginning of Purchase Item Modal-->
+<div class="modal fade" id="Modal-PurchaseConfirm-{{ item.id }}"
+   tabindex="-1"
+   aria-labelledby="exampleModallabel" aria-hidden="true">
+   <div class="modal-dialog">
+      <div class="modal-content">
+         <div class="modal-header">
+            <h5 class="modal-title" id="Modallabel">
+               <!-- -->
+                {{ item.name }}
+            </h5>
+            <button type="button" class="close"
+               data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true"></span>
+            </button>
+         </div>
+         <div class="modal-body">
+            <!-- Here goes the text/paragraph-->
+
+             <form method="post">
+                {{ purchase_form.hidden_tag() }}
+
+                 <h4>
+                     Are you sure you want to buy {{ item.name }} for Ksh. {{ item.price }} ?
+                 </h4>
+                 <br>
+                 <h6 class="text-center">
+                     By clicking purchase, you will purchase this item.
+                 </h6>
+                 <br>
+                 <input id="purchased_item" name="purchased_item" type="hidden" value="{{ item.name }}">
+                 {{ purchase_form.submit(class="btn btn-outline-success btn-block") }}
+             </form>
+         </div>
+         <div class="modal-footer">
+            <button type="button" class="btn btn-secondary"
+               data-dismiss="modal">Cancel
+            </button>
+         </div>
+      </div>
+   </div>
+</div>
+<!-- End of Purchase Item Modal-->
+
+
+<!-- More Info Modal-->
+<div class="modal fade" id="Modal-MoreInfo-{{ item.id }}"
+   tabindex="-1"
+   aria-labelledby="exampleModallabel" aria-hidden="true">
+   <div class="modal-dialog">
+      <div class="modal-content">
+         <div class="modal-header">
+            <h5 class="modal-title" id="Modallabel">
+               <!-- -->
+                {{ item.name }}
+            </h5>
+            <button type="button" class="close"
+               data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true"></span>
+            </button>
+         </div>
+         <div class="modal-body">
+            <!-- Here goes the text/paragraph-->
+             {{ item.description }}
+         </div>
+         <div class="modal-footer">
+            <button type="button" class="btn btn-secondary"
+               data-dismiss="modal">Close
+            </button>
+         </div>
+      </div>
+   </div>
+</div>
+<!-- End of More Info Modal-->

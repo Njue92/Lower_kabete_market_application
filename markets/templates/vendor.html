@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Vendor
+{% endblock %}
+
+{% block content %}
+    <h6>Vendor Page</h6>
+    <br>
+    <h4></h4>
+    <body class="text-center">
+    <div class="container">
+
+    <form method="post" class="form-register" style="color:white">
+        {{ form.hidden_tag() }}
+     <h1 class="h3 mb-3 font-weight-normal">
+        Please fill below to add item
+     </h1>
+     <br>
+    <form method="post">
+
+     {{ form.csrf_token }}
+        {{ form.name.label() }}
+        {{ form.name(class="form-control",placeholder="Name of business") }}
+        <br>
+        {{ form.phone.label() }}
+    (+254) {{ form.phone(class="form-control",placeholder="Phone number") }}
+        <br>
+                {{ form.state.label() }}
+    {{ form.state(class="form-control") }}
+        <br>
+        {{ form.type.label() }}
+    {{ form.type(class="form-control") }}
+        <br>
+    <input type="submit" class="btn btn-primary">
+    </form>
+{#    {{ vendor_form.item.label() }}#}
+{#    {{ vendor_form.item(class="form-control",placeholder="Name of Item") }}#}
+{#    {{ vendor_form.price.label() }}#}
+{#    {{ vendor_form.price(class="form-control",placeholder="Price of item (Ksh.)") }}#}
+{#    {{ vendor_form.barcode.label() }}#}
+{#    {{ vendor_form.barcode(class="form-control",placeholder=" Item Barcode(optional)") }}#}
+{#    {{ vendor_form.description.label() }}#}
+{#    {{ vendor_form.description(class="form-control",placeholder="Item description (Optional)") }}#}
+
+
+
+{% endblock %}
+
